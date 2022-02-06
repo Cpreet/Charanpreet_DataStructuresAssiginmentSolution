@@ -27,14 +27,17 @@ public class Building {
     public void buildOrder() {
         //find max floor size
         Integer max = Collections.max(floorList);
+
+        //Iterate through List
         for (int i = 0; i < floorList.size(); i++) {
             System.out.println("Floors built on Day " + (i+1) +": ");
             if (floorList.get(i) >= max) {
                 System.out.print(floorList.get(i) + " ");
-                floorList.remove(i);
+                floorList.set(i, 0);
                 max = Collections.max(floorList);
                 try 
                 {
+                    Collections.sort(buildStack);
                     while (buildStack.peek() >= max) {
                         System.out.print(buildStack.pop() + " ");
                     }
@@ -45,8 +48,9 @@ public class Building {
             }
             else {
                 buildStack.push(floorList.get(i));
-                floorList.remove(i);
+                floorList.set(i, 0);
             }
+            System.out.println("");
         }
     }
 }
