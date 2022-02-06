@@ -6,5 +6,6 @@ public class Main {
     public static void main(String[] args) {
         Building build = new Building();
         build.buildingInput();
+        build.buildOrder();
     }        
 }
